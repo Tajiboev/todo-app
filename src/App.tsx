@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { FC } from "react";
+import Header from "./Components/Header";
+import AddTodo from "./Components/AddTodo";
+import TodoList from "./Components/TodoList";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import "./Styles/app.sass";
+import { useStoreState } from "./Store/typedhooks";
+import useBodyClass from "./useBodyClass";
+import SwitchModes from "./Components/SwitchModes";
+
+const App: FC = () => {
+	const nightMode = useStoreState((state) => state.nightMode);
+	const mode = nightMode ? "dark" : "light";
+	useBodyClass(`${mode}`);
+
+	return (
+		<main className="main">
+			<SwitchModes />
+			<Header />
+			<AddTodo />
+			<TodoList />
+		</main>
+	);
+};
 
 export default App;

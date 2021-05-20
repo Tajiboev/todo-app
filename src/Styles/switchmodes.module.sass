@@ -1,0 +1,42 @@
+.wrapper, .with_icon
+    display: flex
+    align-items: center
+
+.switch
+    width: 3rem
+    height: 1.5rem
+    background-color: #00D25B
+    border-radius: 20rem
+    position: relative
+    margin: 0 0.25rem
+    border: 1px solid #111
+    box-sizing: content-box
+    cursor: pointer
+
+.circle
+    width: calc( 1.5rem - 3px )
+    height: calc( 1.5rem - 3px )
+    background-color: #fff
+    border: 1px solid #111
+    border-radius: 50%
+    position: absolute
+    top: 1.5px
+    left: 1.5px
+    transition: all 0.2s ease-in-out
+
+.with_icon
+    border: none
+    padding: 0.25rem
+
+#sun_icon
+    color: orange
+
+.dark
+    #sun_icon
+        color: inherit
+    #moon_icon
+        color: orange
+    .circle
+        left: calc( 1.5rem + 1px )
+    .switch
+        border-color: #00D25B

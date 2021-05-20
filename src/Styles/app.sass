@@ -1,0 +1,33 @@
+@use 'sass:map'
+@import '_vars'
+
+body
+    font-family: 'Inter', sans-serif
+    color: #111
+    background-color: #f2f2f2
+
+.main
+    width: 100%
+    max-width: 600px
+    padding: 2rem
+    margin: 4rem auto
+    border-radius: 4px
+    background-color: #fff
+    border: 1px solid
+
+.dark
+    background-color: #111
+    color: #6c7293
+    .main
+        background-color: #191C24
+        border-color: #191C24
+
+@media (max-width: 600px)
+    body
+        background-color: #fff
+    .main
+        border: none
+        margin-top: 1rem
+        padding: 1.5rem
+    .dark
+        background-color: #191C24

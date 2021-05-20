@@ -1,0 +1,40 @@
+@use 'sass:map'
+@import '_vars'
+
+.wrapper
+    display: flex
+    gap: 0.5rem
+    margin-top: 1rem
+
+.input
+    flex: 1
+    padding: 0.5rem
+    border: 1px solid
+    border-radius: 2px
+    outline: none
+    background: transparent
+    color: inherit
+    &::placeholder
+        color: inherit
+        opacity: 0.75
+
+.button
+    outline: none
+    border: 1px solid #111
+    padding: 0.5rem 1rem
+    border-radius: 2px
+    background-color: #00D25B
+    color: #fff
+    font-weight: 500
+
+.error_message
+    font-size: 0.875rem
+    padding: 0.25rem 0.5rem
+    color: #FC424A
+
+.input_error
+    border-color: #FC424A
+
+@media (max-width: 600px)
+    .wrapper
+        flex-direction: column
