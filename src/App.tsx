@@ -1,12 +1,12 @@
-import { FC } from "react";
-import Header from "./Components/Header";
-import AddTodo from "./Components/AddTodo";
-import TodoList from "./Components/TodoList";
-
-import "./Styles/app.sass";
+import { FC, Suspense, lazy } from "react";
 import { useStoreState } from "./Store/typedhooks";
 import useBodyClass from "./useBodyClass";
 import SwitchModes from "./Components/SwitchModes";
+import "./Styles/app.sass";
+
+const Header = lazy(() => import("./Components/Header"));
+const AddTodo = lazy(() => import("./Components/AddTodo"));
+const TodoList = lazy(() => import("./Components/TodoList"));
 
 const App: FC = () => {
 	const nightMode = useStoreState((state) => state.nightMode);
@@ -15,10 +15,12 @@ const App: FC = () => {
 
 	return (
 		<main className="main">
-			<SwitchModes />
-			<Header />
-			<AddTodo />
-			<TodoList />
+			<Suspense fallback={<div className="fallback">Loading...</div>}>
+				<SwitchModes />
+				<Header />
+				<AddTodo />
+				<TodoList />
+			</Suspense>
 		</main>
 	);
 };
