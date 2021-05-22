@@ -19,13 +19,14 @@ const AddTodo: FC = () => {
 		resolver: yupResolver(inputschema),
 	});
 	const onSubmit: SubmitHandler<IInput> = (data) => {
+		console.log("submit", data);
 		let todo: ITodo = {
 			id: nanoid(6),
 			text: data.text,
 			isCompleted: false,
 		};
 		addTodo(todo);
-		reset();
+		reset({ text: "" });
 	};
 
 	return (
